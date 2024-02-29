@@ -470,6 +470,7 @@ class FeatureRule(object):
         seed: str = None,
         name: str = None,
         phase: str = None,
+        bucketVersion: int = None,
     ) -> None:
         self.key = key
         self.variations = variations
@@ -487,6 +488,7 @@ class FeatureRule(object):
         self.seed = seed
         self.name = name
         self.phase = phase
+        self.bucketVersion = bucketVersion
 
     def to_dict(self) -> dict:
         data: Dict[str, Any] = {}
@@ -522,6 +524,8 @@ class FeatureRule(object):
             data["name"] = self.name
         if self.phase is not None:
             data["phase"] = self.phase
+        if self.bucketVersion is not None:
+            data["bucketVersion"] = self.bucketVersion
 
         return data
 
